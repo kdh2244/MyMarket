@@ -1,17 +1,25 @@
 package com.example.market.entity;
-
 import jakarta.persistence.*;
+import lombok.*;
+import org.locationtech.jts.geom.Point;
 
 import java.awt.*;
+import java.util.List;
 
+@ToString
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false,unique = true,
-        columnDefinition = "VARCHAR(100) email CHECK IN ('%@%')")
+        columnDefinition = "VARCHAR(100) CHECK ( email LIKE '%@%' )")
     private String email;
 
     @Column(nullable = false , length = 100)
@@ -38,10 +46,12 @@ public class User {
     private double mannerTemp;
 
     @OneToMany(mappedBy = "seller")
-    private Product product;
+    @Column(nullable = true)
+    private List<Product> product;
 
     @OneToMany(mappedBy = "buyer")
-    private Trade trade;
+    @Column(nullable = true)
+    private List<Trade> trade;
 
 
 

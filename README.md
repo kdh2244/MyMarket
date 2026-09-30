@@ -7,7 +7,8 @@
 
 - 프로젝트 구조 
 - 아키텍쳐
--
+-<img width="985" height="615" alt="my" src="https://github.com/user-attachments/assets/aecccad9-f8e3-439d-89d3-39a9e35baea9" />
+
 - 
 - uml 다이어그램
 - 주요 기술들
